@@ -20,7 +20,7 @@ headers = {
 response = requests.request("GET", url, headers=headers, params=querystring)
 
 stock_json = response.json()
-#rint(stock_json)
+
 
 if stock_json['quoteResponse']['result'][0]["triggerable"]==False:
     print("Please reenter the ticker")
