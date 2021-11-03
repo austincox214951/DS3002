@@ -22,9 +22,8 @@ response = requests.request("GET", url, headers=headers, params=querystring)
 stock_json = response.json()
 
 
-if stock_json['quoteResponse']['result'][0]["triggerable"]==False:
-    print("Please reenter the ticker")
-else:
+
+try:
     mkt_time = stock_json['quoteResponse']['result'][0]["regularMarketTime"]
     mkt_time = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(mkt_time))
     price = stock_json['quoteResponse']['result'][0]["regularMarketPrice"]
@@ -42,3 +41,6 @@ else:
         output_data = csv.writer(csv_file, delimiter = '\t')
         output_data.writerow(file_out)
         csv_file.close()
+
+except KeyError as keyerr:
+    print(f'Key error occured, please reenter the ticker: {keyerr}')
