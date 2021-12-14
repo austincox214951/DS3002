@@ -1,5 +1,7 @@
 #Austin Cox and Nick Kalinowski
-
+#The bot uses twitter handle @cryptobot190
+#To test, tweet either btc or bitcoin to get the current bitcoin price
+#or tweet info or help for a support tweet
 #!/usr/bin/env python
 # coding: utf-8
 
